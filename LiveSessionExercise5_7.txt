@@ -1,0 +1,41 @@
+######################
+## Downloading data from Christopher Gandrud's Dropbox folder
+## Using source_data function from the repmis package
+## File is on Financial Regulators
+######################
+
+## Load remis library - install it first if you need to 
+library(repmis)
+
+## Sit URL
+fileURL<- "http://bit.ly/14aS5qq"
+## This fiel will download into the current workin directory.
+
+# Download data
+FinRegulatorData<- source_data(fileURL, sep=",", header = TRUE)
+
+# Can't do this with non-public folders
+# For more on downloading from Dropbox, see pages 87 and 88 of Gandrud
+
+## SHA-1 hash of the downloaded data file is:
+## 7fdcb0a9785d52e0f3d450e4bde29dbc4e2b045a
+
+## date()
+## [1] "Tue Sep 27 18:55:57 2016"
+
+## dim(FinRegulatorData)
+## [1] 1615    4
+
+## names(FinRegulatorData)
+## [1] "idn"        "country"    "year"       "reg_4state"
+
+## str(FinRegulatorData)
+##'data.frame':	1615 obs. of  4 variables:
+##      $ idn       : int  1 1 1 1 1 1 1 1 1 1 ...
+##      $ country   : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
+##      $ year      : int  1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 ...
+##      $ reg_4state: int  1 1 1 1 1 1 1 1 1 1 ...
+
+
+
+
